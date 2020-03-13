@@ -61,7 +61,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Create requirements.txt file for easy installation ✅
 * Verification email ✅
 
-## Known Bugs 🐛
-
-* Verification process still needs to be done manually. ⚠️
 
