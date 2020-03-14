@@ -145,13 +145,18 @@ while (restart > 1):
 
         driver.get(url)
 
-        time.sleep(10)
+        # time.sleep(10)
 
         # driver.find_element_by_class_name('pm-button w100 mtauto pm-button--primaryborder').click()
         # driver.find_element_by_link_text("Get Free").click()
         # driver.find_element_by_xpath("/html/body/div[1]/main/main/div/div[4]/div[1]/div[3]/button").click()
-        driver.find_element_by_css_selector("body > div.app-root > main > main > div > div:nth-child(5) > div:nth-child(1) > div.flex-item-fluid-auto.pt1.pb1.flex.flex-column > button").click()
-        time.sleep(1)
+        while True:
+            try:
+                driver.find_element_by_css_selector("body > div.app-root > main > main > div > div:nth-child(5) > div:nth-child(1) > div.flex-item-fluid-auto.pt1.pb1.flex.flex-column > button").click()
+                break
+            except:
+                time.sleep(1)
+                continue
 
         # driver.find_element_by_id('freePlan').click()
         # driver.find_element_by_css_selector("#username").send_keys(rngusername)
@@ -164,47 +169,58 @@ while (restart > 1):
 
         # driver.find_element_by_id('username').send_keys(rngusername)
 
-        time.sleep(1)
+        # time.sleep(1)
 
         # driver.find_element_by_css_selector("#username").send_keys(rngusername)
-        driver.find_element_by_id("username").send_keys(rngusername)
-
-        # time.sleep(1)
-        driver.find_element_by_id("password").send_keys(rngpassword)
-        # time.sleep(1)
-        driver.find_element_by_id("passwordConfirmation").send_keys(rngpassword)
-
-        driver.find_element_by_id("email").send_keys(verifymail)
-        # time.sleep(1)
-        driver.find_element_by_css_selector("body > div.app-root > main > main > div > div.pt2.mb2 > div > div:nth-child(1) > form > div:nth-child(3) > div > button").click()
-
+        while True:
+            try:
+                driver.find_element_by_id("username").send_keys(rngusername)
+                driver.find_element_by_id("password").send_keys(rngpassword)
+                driver.find_element_by_id("passwordConfirmation").send_keys(rngpassword)
+                driver.find_element_by_id("email").send_keys(verifymail)
+                driver.find_element_by_css_selector("body > div.app-root > main > main > div > div.pt2.mb2 > div > div:nth-child(1) > form > div:nth-child(3) > div > button").click()
+                break
+            except:
+                time.sleep(1)
         # driver.switch_to.default_content()
 
-        time.sleep(1)
+        # time.sleep(1)
 
         # driver.find_element_by_id('password').send_keys(rngpassword)
 
-        time.sleep(1)
+        # time.sleep(1)
 
         # driver.find_element_by_id('passwordc').send_keys(rngpassword)
 
-        time.sleep(1)
+        # time.sleep(1)
 
         # driver.switch_to_frame(1)
 
-        time.sleep(1)
+        # time.sleep(1)
 
         # driver.find_element_by_id('notificationEmail').send_keys(notifymail)
-        driver.find_element_by_css_selector("body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > div > div > div:nth-child(2) > form > div:nth-child(2) > button").click()
-        time.sleep(60)
-        time.sleep(1)
+        while True:
+            try:
+                driver.find_element_by_css_selector("body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > div > div > div:nth-child(2) > form > div:nth-child(2) > button").click()
+                break
+            except:
+                time.sleep(1)
+        # time.sleep(60)
+        # time.sleep(1)
         # email_driver.find_element_by_partial_link_text('verification').click()
         # email_driver.find_element_by_link_text('notify@protonmail.ch ').click()
-        val = email_driver.find_element_by_class_name('email-excerpt').text
-        print(val[-6:], "verification")
-        driver.find_element_by_id('code').send_keys(val[-6:])
-        time.sleep(1)
-        driver.find_element_by_css_selector('body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > form > div > div > div:nth-child(4) > button').click()
+        while True:
+            try:
+                val = email_driver.find_element_by_class_name('email-excerpt').text
+                if not val[-6:].isnumeric():
+                    raise Exception
+                print(val[-6:], "verification")
+                driver.find_element_by_id('code').send_keys(val[-6:])
+                time.sleep(1)
+                driver.find_element_by_css_selector('body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > form > div > div > div:nth-child(4) > button').click()
+                break
+            except:
+                time.sleep(1)
         # driver.find_element_by_name('submitBtn').click()
 
         # time.sleep(6)
