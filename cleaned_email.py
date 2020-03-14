@@ -112,7 +112,7 @@ while True:
 print("Account Created \uE405\nYour Details")
 
 f = open('list.csv', 'a')
-info = rngusername +', '+ rngpassword
+info = rngusername +', '+ rngpassword + '\n'
 f.write(info)
 print("Username", rngusername, "Password", rngpassword)
 print("Info also added to list.csv")
