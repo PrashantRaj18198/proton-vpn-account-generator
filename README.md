@@ -10,7 +10,7 @@ This script can create ProtonVPN using Python and Selenium
 You need python 3 installed on your System.
 
 ```
-pip install -r requirements.txt
+pip install -r requirements.txt 
 ```
 You need chromedriver
 #### Download chromedriver from
@@ -31,7 +31,8 @@ To run this script open your Terminal in the project directory.
 To start the script enter:
 
 ```
-python emails.py
+python emails.py #slower
+python cleaned_emails.py #faster
 ```
 
 ## Built With
