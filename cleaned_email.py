@@ -75,7 +75,7 @@ def getUserName():
     return 'AbolitionMan'+str(val - 1)
 
 rngusername = getUserName()
-rngpassword = 'infinity'
+rngpassword = randomStringDigits(13)
 
 print("Loading protonvpn server:", url)
 
