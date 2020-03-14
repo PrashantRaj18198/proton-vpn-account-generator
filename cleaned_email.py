@@ -29,6 +29,17 @@ print("Loading temp-mail server:", email_url)
 
 email_driver.get(email_url)
 
+t = 0
+timeout = 60
+
+def checkTimeout():
+    global t, timeout
+    if t > timeout:
+        t = 0
+        print("Connection timed out. Exiting now!")
+        exit(-1)
+    t += 1
+
 while True:
     try:
         email = email_driver.find_element_by_id('inbox-id').text + '@'
@@ -37,6 +48,7 @@ while True:
         print(email)
         break
     except:
+        checkTimeout()
         time.sleep(1)
 
 
@@ -60,10 +72,10 @@ def getUserName():
     f = open('lastused.txt', 'w')
     val += 1
     f.write(str(val))
-    return 'wowmainia'+str(val - 1)
+    return 'AbolitionMan'+str(val - 1)
 
 rngusername = getUserName()
-rngpassword = randomStringDigits(15)
+rngpassword = 'infinity'
 
 print("Loading protonvpn server:", url)
 
@@ -74,8 +86,8 @@ while True:
         driver.find_element_by_css_selector("body > div.app-root > main > main > div > div:nth-child(5) > div:nth-child(1) > div.flex-item-fluid-auto.pt1.pb1.flex.flex-column > button").click()
         break
     except:
+        checkTimeout()
         time.sleep(1)
-        continue
 
 while True:
     try:
@@ -86,12 +98,14 @@ while True:
         driver.find_element_by_css_selector("body > div.app-root > main > main > div > div.pt2.mb2 > div > div:nth-child(1) > form > div:nth-child(3) > div > button").click()
         break
     except:
+        checkTimeout()
         time.sleep(1)
 while True:
     try:
         driver.find_element_by_css_selector("body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > div > div > div:nth-child(2) > form > div:nth-child(2) > button").click()
         break
     except:
+        checkTimeout()
         time.sleep(1)
 
 print("Wait for verification")
@@ -107,6 +121,7 @@ while True:
         driver.find_element_by_css_selector('body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > form > div > div > div:nth-child(4) > button').click()
         break
     except:
+        checkTimeout()
         time.sleep(1)
 
 print("Account Created \uE405\nYour Details")
