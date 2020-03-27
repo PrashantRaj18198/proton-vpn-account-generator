@@ -26,13 +26,23 @@ Find and replace 'wowmania' with a random word of your choice
 
 ## Running 🏃🏽‍♂️
 
-To run this script open your Terminal in the project directory.
-
-To start the script enter:
+### Create new account
 
 ```
-python emails.py #slower
-python cleaned_emails.py #faster
+python3 emails.py #slower
+python3 cleaned_emails.py #faster
+```
+
+### Fetch openVPN credentials
+```
+python3 getOpenVPNUsernamePassword.py
+```
+
+### Change details to protonvpn-cli
+* [protonvpn-cli](https://github.com/ProtonVPN/protonvpn-cli-ng)
+Note: A protonvpn profile must be in place since the script uses `sudo protonvpn configure`. Use `sudo protonvpn init` to create one.
+```
+python3 script.py
 ```
 
 ## Built With
