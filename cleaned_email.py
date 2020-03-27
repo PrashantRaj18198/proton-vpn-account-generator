@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from colorama import Fore, Back, Style
 import warnings
 import time
@@ -31,6 +36,8 @@ email_driver.get(email_url)
 
 t = 0
 timeout = 60
+
+wait = WebDriverWait(email_driver, 60)
 
 def checkTimeout():
     global t, timeout
@@ -67,7 +74,7 @@ def randomStringDigits(stringLength=13):
 
 def getUserName():
     f = open('lastused.txt')
-    val = int(f.readline())
+    val = int(f.readline().strip())
     f.close()
     f = open('lastused.txt', 'w')
     val += 1
@@ -75,7 +82,7 @@ def getUserName():
     return 'AbolitionMan'+str(val - 1)
 
 rngusername = getUserName()
-rngpassword = randomStringDigits(13)
+rngpassword = 'infinity'
 
 print("Loading protonvpn server:", url)
 
@@ -131,3 +138,6 @@ info = rngusername +', '+ rngpassword + '\n'
 f.write(info)
 print("Username", rngusername, "Password", rngpassword)
 print("Info also added to list.csv")
+time.sleep(5)
+driver.quit()
+email_driver.quit()
