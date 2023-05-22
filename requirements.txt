@@ -1,4 +1,4 @@
 selenium==3.141.0
 colorama==0.4.1
-requests==2.20.1
+requests==2.31.0
 proxyscrape==0.3.0
